@@ -58,6 +58,22 @@ router.get("/:productId",(req,res,next)=>{
     })
 })
 
+router.put("/:productId",(req,res,next)=>{
+    const id= req.params.productId
+    const updatedDetails = req.body
+    Product.findByIdAndUpdate(id, updatedDetails).exec(function(err, updatedProduct){
+        if(err){
+            res.status(500).json({
+                status:"error",
+                message:err
+            })
+        }
+        res.status(200).json({
+            data: updatedProduct 
+        })
+    })
+})
+
 router.get("/category/:category",(req,res,next)=>{
     const category = req.params.category;
     Product.find({"Category":category}).exec(function(err, product_details){
@@ -73,5 +89,22 @@ router.get("/category/:category",(req,res,next)=>{
         })
     })
 })
+
+router.get("/favorites",(req,res,next)=>{
+    
+    Product.find({"Favorite":true}).exec(function(err, product_details){
+        if(err){
+            res.status(500).json({
+                status:"error",
+                message:err
+            })
+        }
+        res.status(200).json({
+            message:"Retrived all favorite products!",
+            data: product_details 
+        })
+    })
+})
+
 
 module.exports = router;

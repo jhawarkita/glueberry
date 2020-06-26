@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardMedia, Typography, Button, Grid, Paper, CircularProgress } from '@material-ui/core';
 import { connect } from 'react-redux';
+import {addToWishlist} from "../redux/actions"
 
 class ProductView extends React.Component {
 	constructor(props) {
@@ -33,7 +34,7 @@ class ProductView extends React.Component {
 								<Button variant="contained" color="primary" style={{ margin: '16px' }}>
 									Add to Cart
 								</Button>
-								<Button variant="contained" color="primary" style={{ margin: '16px' }}>
+								<Button variant="contained" color="primary" style={{ margin: '16px' }} onClick={()=>{addToWishlist(imageObject["_id"])}}>
 									Wishlist
 								</Button>
 							</Grid>

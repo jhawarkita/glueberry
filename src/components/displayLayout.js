@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Paper, Grid } from '@material-ui/core';
 import { withRouter } from 'react-router';
 import CardLayout from './cardLayout';
-import { getProductsByCategory, getSelectedProduct } from '../redux/actions';
+import { getProductsByCategory, getSelectedProduct, addToWishlist } from '../redux/actions';
 
 class DisplayLayout extends React.Component {
 	constructor(props) {
@@ -39,6 +39,7 @@ class DisplayLayout extends React.Component {
 										onClick={() => {
 											this.loadProduct(item);
 										}}
+										onClickFavorite={addToWishlist}
 									></CardLayout>
 								</Paper>
 							</Grid>

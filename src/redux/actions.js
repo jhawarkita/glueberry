@@ -28,3 +28,19 @@ export function getProductsByCategory(selectedCategory){
         .catch(err => reject(err))
     })
 }
+
+export function addToWishlist(productId){
+    let favorite = false;
+    fetch("http://localhost:3005/products/"+productId)
+    .then(res => res.json())
+    .then(res=>{
+           favorite = res["data"]["Favorite"]
+        })
+    .then(()=>{
+        fetch("http://localhost:3005/products/"+productId,{
+            method: 'PUT',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({"Favorite":!favorite})
+        })
+    })
+}

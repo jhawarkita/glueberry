@@ -9,6 +9,7 @@ class CardLayout extends React.Component {
         this.addToFavorites = this.addToFavorites.bind(this);
     }
     addToFavorites(id){
+        this.props.onClickFavorite(id)
         console.log(id)
     }
 	render() {
