@@ -15,9 +15,9 @@ class Header extends React.Component {
                 </Typography>
                 <Search></Search>
                 <InputBase placeholder="Search"></InputBase>
-                <IconButton><Favorite></Favorite></IconButton>
-                <IconButton><ShoppingCart></ShoppingCart></IconButton>
-                <IconButton><Person></Person></IconButton>
+                <IconButton onClick={()=>{this.props.history.push("/favorites")}}><Favorite color="secondary"></Favorite></IconButton>
+                <IconButton><ShoppingCart color="secondary"></ShoppingCart></IconButton>
+                <IconButton><Person color="secondary"></Person></IconButton>
                 </Toolbar>
             </AppBar>
         )

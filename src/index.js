@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import {ThemeProvider, createMuiTheme} from "@material-ui/core"
 const theme = createMuiTheme({
+  padding:"16px",
   palette:{
     primary:{
       main:"#FEDBD0"

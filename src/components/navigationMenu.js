@@ -23,9 +23,9 @@ class NavigationMenu extends React.Component {
         this.setState({ drawerOpen: !this.state.drawerOpen });
     }
 
-    loadGrid(item){
-        this.props.dispatch(updateDisplayCategory(item));
-        this.props.history.push("/display")
+    loadGrid(category){
+        this.props.dispatch(updateDisplayCategory(category));
+        this.props.history.push("/display/"+ category)
     }
 
     render() {
@@ -35,14 +35,14 @@ class NavigationMenu extends React.Component {
                     <MenuIcon color="secondary"></MenuIcon>
                     <Drawer anchor="left" open={this.state.drawerOpen} onClose={this.toggleDrawer}>
                     <List>
-                        <ListItem>
+                        <ListItem key={1} button onClick={()=>{this.props.history.push("/")}}>
                             <ListItemText primary="Home"></ListItemText>
                         </ListItem>
                         <Divider></Divider>
-                        <ListItem button onClick={() => { this.loadGrid("Gift Hampers") }}>
+                        <ListItem key={2} button onClick={() => { this.loadGrid("Gift Hampers") }}>
                             <ListItemText primary="Gift Hampers"></ListItemText>
                         </ListItem>
-                        <ListItem button onClick={() => { this.loadGrid("Decoupage Wall Plate") }}>
+                        <ListItem key={3} button onClick={() => { this.loadGrid("Decoupage Wall Plate") }}>
                             <ListItemText primary="Decoupage Wall Plates"></ListItemText>
                         </ListItem>
                         <ListItem button onClick={() => { this.loadGrid("Handmade card") }}>

@@ -13,7 +13,7 @@ class ProductView extends React.Component {
 			<div>
 				{imageObject === null ? (
 					<CircularProgress
-						style={{ position: 'absolute', left: '50%', right: '50%', transform: 'translate(-50%, -50%)' }}
+						style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
 					></CircularProgress>
 				) : (
 					<Paper elevation={0}>
